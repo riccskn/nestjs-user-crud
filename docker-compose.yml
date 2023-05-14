@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  postgresDb:
+    image: postgres:13.2
+    container_name: docker-postgres-springboot-db
+    ports:
+      - "5432:5432"
+    networks:
+      - network
+    volumes:
+      - volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=dbusers
+
+networks:
+  network:
+
+volumes:
+  volume:
